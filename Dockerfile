@@ -1,13 +1,7 @@
 FROM ubuntu:latest
 RUN apt update
-RUN apt install build-essential -y
-RUN apt install wget -y
-RUN wget https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz
-RUN apt install tar -y
-RUN tar -xf Python-3.10.4.tgz
-WORKDIR "/Python-3.10.4" 
-RUN ./configure --prefix=/usr
-RUN make -j$(nproc)
-RUN make install
-WORKDIR "/"
-RUN rm -rf /Python-3.10.4
+RUN apt install python3 -y
+RUN python3 -m ensurepip
+RUN python3 -m pip install discord.py
+ADD start.py /start.py
+CMD python3 /start.py
