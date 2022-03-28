@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+RUN apt update
 RUN apt install build-essential -y
 RUN apt install wget -y
 RUN wget https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tgz
